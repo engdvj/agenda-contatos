@@ -29,7 +29,7 @@ O que você pode fazer com essa agenda? 🌟
 
 Tudo é feito através de uma interface de linha de comando, super intuitiva e fácil de usar.
 
-<img src="https://github.com/engdvj/agenda-contatos/assets/153877813/9b4a6814-ede7-463f-aafa-e9179a776178" width="300" height="200">
+<img src="https://github.com/engdvj/agenda-contatos/assets/153877813/9b4a6814-ede7-463f-aafa-e9179a776178" width="300" height="400">
 
 # Como começar? 🚀
 
