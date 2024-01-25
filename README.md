@@ -30,7 +30,10 @@ Olá! Este projeto é um sistema de agenda telefônica desenvolvido em Java. Foi
 
 Tudo é feito através de uma interface de linha de comando, super intuitiva e fácil de usar, como nos exemplos abaixo:
 
-<img src="https://github.com/engdvj/agenda-contatos/assets/153877813/9b4a6814-ede7-463f-aafa-e9179a776178" width="300" height="350"><img src="https://github.com/engdvj/agenda-contatos/assets/153877813/2ec9389b-f0d6-433d-b95a-da2a1561141e" width="300" height="350">
+[1]<img src="https://github.com/engdvj/agenda-contatos/assets/153877813/9b4a6814-ede7-463f-aafa-e9179a776178" width="300" height="350">  
+<img src="https://github.com/engdvj/agenda-contatos/assets/153877813/2ec9389b-f0d6-433d-b95a-da2a1561141e" width="300" height="350">  
+<img src="https://github.com/engdvj/agenda-contatos/assets/153877813/2ec9389b-f0d6-433d-b95a-da2a1561141e" width="300" height="350">
+
 
 # Como começar? 🚀
 
