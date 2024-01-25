@@ -162,23 +162,14 @@ public class Arquivo {
         String idFormatado = String.format("%02d", idContato);
 
         for (String linha : linhas) {
-            System.out.println("Linha original: " + linha);
-        }
-
-        for (String linha : linhas) {
             if (!linha.startsWith(idFormatado + " |")) {
                 linhasAtualizadas.add(linha);
             }
         }
 
-        for (String linha : linhasAtualizadas) {
-            System.out.println("Linha mantida: " + linha);
-        }
-
         // Reescreve o arquivo sem o contato removido
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo, false))) {
             for (String linha : linhasAtualizadas) {
-                System.out.println("Escrevendo linha: " + linha);
                 writer.write(linha);
                 writer.newLine();
             }
@@ -263,13 +254,9 @@ public class Arquivo {
                 linhasAtualizadas.add(linha);
             }
         }
-        if(count == 0){
-            System.out.println("Linha de telefone mantida como está.");
-        }else{
-            System.out.println("Linha de telefone atualizada!");
-        }
         // Reescrever o arquivo de telefones com as linhas atualizadas
         escreverNoArquivo(arquivoTelefones, linhasAtualizadas, false);
+        System.out.println("Linha de telefone atualizada!");
     }
     private static void escreverNoArquivo(File arquivo, Object conteudo, boolean append) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo, append))) {
