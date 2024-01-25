@@ -6,28 +6,25 @@ Olá! Este projeto é um sistema de agenda telefônica desenvolvido em Java. Foi
 
 ### 📥 Gerenciar Contatos
 
-**Adicionar Contato**: 
-- Adicione novos contatos à sua agenda! Você só precisa do nome, sobrenome e, claro, dos números de telefone.
+- **Adicionar Contato**: Adicione novos contatos à sua agenda! Você só precisa do nome, sobrenome e, claro, dos números de telefone.
 
-**Editar Contato**: 
-- Quer mudar o nome ou sobrenome? Sem problemas, atualize os detalhes dos seus contatos a qualquer momento.
+- **Editar Contato**: Quer mudar o nome ou sobrenome? Sem problemas, atualize os detalhes dos seus contatos a qualquer momento.
 
-**Remover Contato**: 
-- Mantenha sua agenda organizada removendo contatos que você não precisa mais.
+- **Remover Contato**: Mantenha sua agenda organizada removendo contatos que você não precisa mais.
 
 ### 📞 Tratar dos Telefones
 
-**Adicionar Telefone**: Mais um número? Adicione quantos números de telefone quiser para cada contato.
+-**Adicionar Telefone**: Mais um número? Adicione quantos números de telefone quiser para cada contato.
 
-**Editar Telefone**: Trocou o número? Atualize-o facilmente.
+-**Editar Telefone**: Trocou o número? Atualize-o facilmente.
 
-**Remover Telefone**: Remova números antigos ou errados com um simples comando.
+-**Remover Telefone**: Remova números antigos ou errados com um simples comando.
 
 ### 💾 Persistência de Dados
 
-**Salvar Alterações**: Não se preocupe em perder suas alterações, tudo é salvo automaticamente em arquivos txt.
+-**Salvar Alterações**: Não se preocupe em perder suas alterações, tudo é salvo automaticamente em arquivos txt.
 
-**Carregar Contatos**: Ao iniciar, a agenda lê os arquivos salvos e carrega todos os seus contatos previamente salvos. Prático, não é?
+-**Carregar Contatos**: Ao iniciar, a agenda lê os arquivos salvos e carrega todos os seus contatos previamente salvos. Prático, não é?
 
 ### 👀 Interface Simples
 
