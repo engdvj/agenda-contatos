@@ -1,11 +1,12 @@
 # Bem-vindo ao Sistema de Agenda Telefônica em Java! 📒
 
 Olá! Este projeto é um sistema de agenda telefônica desenvolvido em Java. Foi criado para ser simples e fácil de usar, permitindo que você gerencie seus contatos e números de telefone com apenas alguns comandos no terminal. Vamos mergulhar nas funcionalidades!
-O que você pode fazer com essa agenda? 🌟
+
+**O que você pode fazer com essa agenda?** 🌟
 
 ## 📥 Gerenciar Contatos
 
-**Adicionar Contato**: Adicione novos amigos à sua agenda! Você só precisa do nome, sobrenome e, claro, do número de telefone.
+**Adicionar Contato**: Adicione novos contatos à sua agenda! Você só precisa do nome, sobrenome e, claro, dos números de telefone.
 
 **Editar Contato**: Mudou o nome? Sem problemas, atualize os detalhes dos seus contatos a qualquer momento.
 
@@ -27,9 +28,9 @@ O que você pode fazer com essa agenda? 🌟
 
 ## 👀 Interface Simples
 
-Tudo é feito através de uma interface de linha de comando, super intuitiva e fácil de usar.
+Tudo é feito através de uma interface de linha de comando, super intuitiva e fácil de usar, como nos exemplos abaixo:
 
-<img src="https://github.com/engdvj/agenda-contatos/assets/153877813/9b4a6814-ede7-463f-aafa-e9179a776178" width="300" height="400">
+<img src="https://github.com/engdvj/agenda-contatos/assets/153877813/9b4a6814-ede7-463f-aafa-e9179a776178" width="300" height="350">
 
 # Como começar? 🚀
 
