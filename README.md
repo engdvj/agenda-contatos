@@ -1,6 +1,8 @@
 # Bem-vindo ao Sistema de Agenda Telefônica em Java! 📒
 
-Olá! Este projeto é um sistema de agenda telefônica desenvolvido em Java. Foi criado para ser simples e fácil de usar, permitindo que você gerencie seus contatos e números de telefone com apenas alguns comandos no terminal. Vamos mergulhar nas funcionalidades! Mas.. O que você pode fazer com essa agenda? 🌟
+Olá! Este projeto é um sistema de agenda telefônica desenvolvido em Java. Foi criado para ser simples e fácil de usar, permitindo que você gerencie seus contatos e números de telefone com apenas alguns comandos no terminal. Vamos mergulhar nas funcionalidades! 
+
+Mas... o que mesmo você pode fazer nessa agenda? 🌟
 
 ## 📥 Gerenciar Contatos
 
