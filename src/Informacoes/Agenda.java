@@ -18,9 +18,7 @@ public class Agenda {
         return new ArrayList<>(contatos);
     }
     public Contato getContatoPorId(Long id) {
-        System.out.println("Procurando contato com ID: " + id);
         for (Contato contato : this.contatos) {
-            System.out.println("Verificando contato: " + contato.getId());
             if (contato.getId().equals(id)) {
                 return contato;
             }
