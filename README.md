@@ -1,10 +1,8 @@
 # Bem-vindo ao Sistema de Agenda Telefônica em Java! 📒
 
-Olá! Este projeto é um sistema de agenda telefônica desenvolvido em Java. Foi criado para ser simples e fácil de usar, permitindo que você gerencie seus contatos e números de telefone com apenas alguns comandos no terminal. Vamos mergulhar nas funcionalidades!
+Olá! Este projeto é um sistema de agenda telefônica desenvolvido em Java. Foi criado para ser simples e fácil de usar, permitindo que você gerencie seus contatos e números de telefone com apenas alguns comandos no terminal. Vamos mergulhar nas funcionalidades! Mas.. O que você pode fazer com essa agenda? 🌟
 
-## **O que você pode fazer com essa agenda?** 🌟
-
-### 📥 Gerenciar Contatos
+## 📥 Gerenciar Contatos
 
 - **Adicionar Contato**: Adicione novos contatos à sua agenda! Você só precisa do nome, sobrenome e, claro, dos números de telefone.
 
@@ -12,27 +10,35 @@ Olá! Este projeto é um sistema de agenda telefônica desenvolvido em Java. Foi
 
 - **Remover Contato**: Mantenha sua agenda organizada removendo contatos que você não precisa mais.
 
-### 📞 Tratar dos Telefones
+  
 
--**Adicionar Telefone**: Mais um número? Adicione quantos números de telefone quiser para cada contato.
+## 📞 Tratar dos Telefones
 
--**Editar Telefone**: Trocou o número? Atualize-o facilmente.
+- **Adicionar Telefone**: Mais um número? Adicione quantos números de telefone quiser para cada contato.
 
--**Remover Telefone**: Remova números antigos ou errados com um simples comando.
+- **Editar Telefone**: Trocou o número? Atualize-o facilmente.
 
-### 💾 Persistência de Dados
+- **Remover Telefone**: Remova números antigos ou errados com um simples comando.
 
--**Salvar Alterações**: Não se preocupe em perder suas alterações, tudo é salvo automaticamente em arquivos txt.
+  
 
--**Carregar Contatos**: Ao iniciar, a agenda lê os arquivos salvos e carrega todos os seus contatos previamente salvos. Prático, não é?
+## 💾 Persistência de Dados
 
-### 👀 Interface Simples
+- **Salvar Alterações**: Não se preocupe em perder suas alterações, tudo é salvo automaticamente em arquivos txt.
+
+- **Carregar Contatos**: Ao iniciar, a agenda lê os arquivos salvos e carrega todos os seus contatos previamente salvos. Prático, não é?
+
+  
+
+## 👀 Interface Simples
 
 Tudo é feito através de uma interface de linha de comando, super intuitiva e fácil de usar, como nos exemplos abaixo:
 
 <img src="https://github.com/engdvj/agenda-contatos/assets/153877813/9b4a6814-ede7-463f-aafa-e9179a776178" width="250" height="300"> <img src="https://github.com/engdvj/agenda-contatos/assets/153877813/2ec9389b-f0d6-433d-b95a-da2a1561141e" width="250" height="300"> <img src="https://github.com/engdvj/agenda-contatos/assets/153877813/1cb02f28-fc7a-4552-a12b-5791675a8a91" width="250" height="300">
 
-## Como começar? 🚀
+
+
+# Como começar? 🚀
 
 1° Faça o download ou clone o repositório.
 
@@ -40,11 +46,14 @@ Tudo é feito através de uma interface de linha de comando, super intuitiva e f
 
 3° Siga as instruções na tela para adicionar, editar ou remover contatos e telefones.
 
-## Requisitos 🖥️
+
+
+# Requisitos 🖥️
 
 Você só precisa do Java SE Development Kit (JDK) instalado no seu computador.
 
-## Contribuições são sempre bem-vindas! 🤝
+
+# Contribuições são sempre bem-vindas! 🤝
 
 Se você tem alguma ideia para melhorar o projeto ou quer corrigir um bug, fique à vontade para criar um pull request.
 
