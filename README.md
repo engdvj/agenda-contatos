@@ -8,7 +8,7 @@ Olá! Este projeto é um sistema de agenda telefônica desenvolvido em Java. Foi
 
 **Adicionar Contato**: Adicione novos contatos à sua agenda! Você só precisa do nome, sobrenome e, claro, dos números de telefone.
 
-**Editar Contato**: Mudou o nome? Sem problemas, atualize os detalhes dos seus contatos a qualquer momento.
+**Editar Contato**: Quer mudar o nome ou sobrenome? Sem problemas, atualize os detalhes dos seus contatos a qualquer momento.
 
 **Remover Contato**: Mantenha sua agenda organizada removendo contatos que você não precisa mais.
 
@@ -22,19 +22,17 @@ Olá! Este projeto é um sistema de agenda telefônica desenvolvido em Java. Foi
 
 ## 💾 Persistência de Dados
 
-**Carregar Contatos**: Ao iniciar, a agenda carrega todos os seus contatos previamente salvos. Prático, não é?
+**Salvar Alterações**: Não se preocupe em perder suas alterações, tudo é salvo automaticamente em arquivos txt.
 
-**Salvar Alterações**: Não se preocupe em perder suas alterações, tudo é salvo automaticamente!
+**Carregar Contatos**: Ao iniciar, a agenda lê os arquivos salvos e carrega todos os seus contatos previamente salvos. Prático, não é?
 
 ## 👀 Interface Simples
 
 Tudo é feito através de uma interface de linha de comando, super intuitiva e fácil de usar, como nos exemplos abaixo:
 
-<img src="https://github.com/engdvj/agenda-contatos/assets/153877813/9b4a6814-ede7-463f-aafa-e9179a776178" width="300" height="350"> <img src="https://github.com/engdvj/agenda-contatos/assets/153877813/2ec9389b-f0d6-433d-b95a-da2a1561141e" width="300" height="350"> <img src="https://github.com/engdvj/agenda-contatos/assets/153877813/2ec9389b-f0d6-433d-b95a-da2a1561141e" width="300" height="350">
-
+<img src="https://github.com/engdvj/agenda-contatos/assets/153877813/9b4a6814-ede7-463f-aafa-e9179a776178" width="300" height="350"> <img src="https://github.com/engdvj/agenda-contatos/assets/153877813/2ec9389b-f0d6-433d-b95a-da2a1561141e" width="300" height="350"> <img src="https://github.com/engdvj/agenda-contatos/assets/153877813/1cb02f28-fc7a-4552-a12b-5791675a8a91" width="300" height="350">
 
 # Como começar? 🚀
-
 
 Faça o download ou clone o repositório.
 Compile e execute o arquivo Main.java.
