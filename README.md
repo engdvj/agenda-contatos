@@ -6,7 +6,7 @@ O que você pode fazer com essa agenda? 🌟
 ## 📥 Gerenciar Contatos
 
 **Adicionar Contato**: Adicione novos amigos à sua agenda! Você só precisa do nome, sobrenome e, claro, do número de telefone.
-![1](https://github.com/engdvj/agenda-contatos/assets/153877813/12dd7adb-d4fc-42c3-a204-d4f6bdc3f491)
+![1|150](https://github.com/engdvj/agenda-contatos/assets/153877813/12dd7adb-d4fc-42c3-a204-d4f6bdc3f491)
 
 
 **Editar Contato**: Mudou o nome? Sem problemas, atualize os detalhes dos seus contatos a qualquer momento.
