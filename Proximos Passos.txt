@@ -1,0 +1,3 @@
+1- Ler o arquivo antes de fazer qualquer alteração (ok)
+2- Add funcionalidade de arquivo na função de apagar contato (ok)
+3- Add funcionalidade de arquivo na função de editar contato
