@@ -6,11 +6,14 @@ Olá! Este projeto é um sistema de agenda telefônica desenvolvido em Java. Foi
 
 ### 📥 Gerenciar Contatos
 
-**Adicionar Contato**: Adicione novos contatos à sua agenda! Você só precisa do nome, sobrenome e, claro, dos números de telefone.
+**Adicionar Contato**: 
+- Adicione novos contatos à sua agenda! Você só precisa do nome, sobrenome e, claro, dos números de telefone.
 
-**Editar Contato**: Quer mudar o nome ou sobrenome? Sem problemas, atualize os detalhes dos seus contatos a qualquer momento.
+**Editar Contato**: 
+- Quer mudar o nome ou sobrenome? Sem problemas, atualize os detalhes dos seus contatos a qualquer momento.
 
-**Remover Contato**: Mantenha sua agenda organizada removendo contatos que você não precisa mais.
+**Remover Contato**: 
+- Mantenha sua agenda organizada removendo contatos que você não precisa mais.
 
 ### 📞 Tratar dos Telefones
 
@@ -34,9 +37,11 @@ Tudo é feito através de uma interface de linha de comando, super intuitiva e f
 
 ## Como começar? 🚀
 
-Faça o download ou clone o repositório.
-Compile e execute o arquivo Main.java.
-Siga as instruções na tela para adicionar, editar ou remover contatos e telefones.
+1° Faça o download ou clone o repositório.
+
+2° Compile e execute o arquivo Main.java.
+
+3° Siga as instruções na tela para adicionar, editar ou remover contatos e telefones.
 
 ## Requisitos 🖥️
 
