@@ -3,6 +3,7 @@ package br.com.student.adatech.projetos.arquive;
 import br.com.student.adatech.projetos.models.Agenda;
 import br.com.student.adatech.projetos.models.Contato;
 import br.com.student.adatech.projetos.models.Telefone;
+import br.com.student.adatech.projetos.operacoes.OperacoesContato;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public class Arquivo {
             String[] partesContato = linhaContato.split(" \\| ");
             long idContato = Long.parseLong(partesContato[0].trim());
             Contato contato = recuperarContato(partesContato, linhasTelefone, idContato);
-            Agenda.adicionarContato(contato);
+            OperacoesContato.adicionarContato(contato);
         }
     }
     private static Contato recuperarContato(String[] partesContato, List<String> linhasTelefone, Long idContato) {

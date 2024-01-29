@@ -3,7 +3,7 @@ package br.com.student.adatech.projetos.menu;
 import br.com.student.adatech.projetos.models.Agenda;
 import br.com.student.adatech.projetos.models.Contato;
 import br.com.student.adatech.projetos.arquive.Arquivo;
-
+import br.com.student.adatech.projetos.operacoes.OperacoesContato;
 
 import java.util.Scanner;
 
@@ -32,13 +32,13 @@ public class Menu {
             sc.nextLine();
             switch (opcao) {
                 case 1:
-                    Agenda.adicionarContato();
+                    OperacoesContato.adicionarContato();
                     break;
                 case 2:
-                    Agenda.editarContato();
+                    OperacoesContato.editarContato();
                     break;
                 case 3:
-                    Agenda.removerContato();
+                    OperacoesContato.removerContato();
                     break;
                 case 4:
                     System.out.println("Saindo...");
@@ -92,13 +92,13 @@ public class Menu {
 
             switch (opcao) {
                 case 1:
-                    Agenda.adicionarNovoTelefone(sc, contato);
+                    OperacoesContato.adicionarNovoTelefone(contato);
                     break;
                 case 2:
-                    Agenda.editarTelefoneExistente(sc, contato);
+                    OperacoesContato.editarTelefoneExistente(contato);
                     break;
                 case 3:
-                    Agenda.apagarTelefoneExistente(sc, contato);
+                    OperacoesContato.apagarTelefoneExistente(contato);
                     break;
                 default:
                     System.out.println("Opção inválida. Por favor, escolha uma opção válida (1, 2 ou 3).");
