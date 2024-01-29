@@ -2,39 +2,60 @@ package br.com.student.adatech.projetos.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
+/**
+ * Classe que representa uma agenda telefônica.
+ * Contém métodos para manipular contatos dentro da agenda.
+ */
 public class Agenda {
 
-    //Variaveis
     private static final List<Contato> agenda = new ArrayList<>();
 
-    //Construtor
+    /**
+     * Construtor para criar uma nova agenda.
+     */
     public Agenda() {}
 
-    //Getters
-    public static Contato getContatoPorId(Long id) {
+    /**
+     * Obtém um contato pelo seu ID.
+     *
+     * @param id O ID do contato.
+     * @return Retorna o contato encontrado ou lança uma exceção se não encontrado.
+     * @throws NoSuchElementException se o contato com o ID fornecido não for encontrado.
+     */
+    public static Contato getContatoPorId(Long id) throws NoSuchElementException {
         for (Contato contato : agenda) {
             if (contato.getId().equals(id)) {
                 return contato;
             }
         }
-        System.out.println("Contato não encontrado.");
-        return null;
+        throw new NoSuchElementException("Contato com ID " + id + " não encontrado.");
     }
-    public static List<Contato> getAgenda() {return agenda; }
 
-    //Outros métodos
+    /**
+     * Retorna a lista de contatos na agenda.
+     *
+     * @return A lista de contatos.
+     */
+    public static List<Contato> getAgenda() {
+        return agenda;
+    }
+
+    /**
+     * Exibe todos os contatos na agenda.
+     * Se a agenda estiver vazia, exibe uma mensagem informando isso.
+     */
     public static void exibirContatos() {
-        // Exibe os contatos da agenda
-        List<Contato> contatos = Agenda.agenda;
-        if (contatos.isEmpty()) {
-            System.out.println("Lista vazia 💤\n");
-        } else {
-            System.out.println(">>>> Contatos <<<<");
-            for (Contato contato : contatos) {
-                System.out.println(contato.getId() + " | " + contato.getNome() + " " + contato.getSobreNome());
-            }
-            System.out.println();
+        if (agenda.isEmpty()) {
+            System.out.println("Lista de contatos vazia!\n");
+            return;
         }
+
+        System.out.println(">>>> Contatos <<<<");
+        for (Contato contato : agenda) {
+            System.out.printf("%d | %s %s\n", contato.getId(), contato.getNome(), contato.getSobreNome());
+        }
+        System.out.println();
     }
 }

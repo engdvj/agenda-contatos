@@ -9,13 +9,24 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe que faz a leitura e escrita de informações da agenda telefônica em um arquivo.
+ */
 public class Arquivo {
 
-    //Variaveis
     private static final String ARQUIVOS = "C:\\Users\\Davi Costa\\Desktop\\Projetos_ADA\\agenda_contatos\\arquivo\\Arquivo.txt";
     private static final String TELEFONES = "C:\\Users\\Davi Costa\\Desktop\\Projetos_ADA\\agenda_contatos\\arquivo\\Telefones.txt";
 
-    //Métodos para leitura do arquivo
+    /**
+     * Métodos para a leitura de informações presentes no arquivo.
+     * carregarContatos() - Inicializa os contatos salvos no arquivo de acordo com as informações presentes.
+     * recuperarContatos() - Cria novos contatos na memória do projeto atual baseado nas informações carregadas
+     * lerContatos()
+     * lerTelefones()
+     * lerDoArquivo()
+     * lerUltimoIdContato()
+     * 
+     */
     public static void carregarContatos() {
         Contato.inicializarIdGenerator(Arquivo.lerUltimoIdContato());
         Telefone.setIDGenerator(Arquivo.lerUltimoIdTelefone());

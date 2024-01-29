@@ -5,49 +5,70 @@ import br.com.student.adatech.projetos.models.Contato;
 import br.com.student.adatech.projetos.arquive.Arquivo;
 import br.com.student.adatech.projetos.operacoes.OperacoesContato;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Classe que representa o menu do programa de agenda telefônica.
+ */
 public class Menu {
 
-    //Variaveis
-    public static Scanner sc;
+    public static final Scanner scanner = new Scanner(System.in);
 
-    //Construtor
+    /**
+     * Construtor que inicializa e carrega os contatos do arquivo.
+     */
     public Menu(){
         Arquivo.carregarContatos();
-        Menu.sc = new Scanner(System.in);
     }
 
-    //Outros métodos
+    /**
+     * Inicia o programa exibindo opções de menu e permitindo ao usuário escolher ações.
+     */
     public void iniciarPrograma(){
         escolherAcao();
-        sc.close();
+        scanner.close();
     }
+    /**
+     * Exibe o menu principal e processa a escolha do usuário.
+     * Permite a navegação entre as diferentes funcionalidades da agenda.
+     */
     private void escolherAcao() {
-        int opcao;
 
+        int opcao = 0;
         do {
-            mostrarScreen();
-            opcao = sc.nextInt();
-            sc.nextLine();
-            switch (opcao) {
-                case 1:
-                    OperacoesContato.adicionarContato();
-                    break;
-                case 2:
-                    OperacoesContato.editarContato();
-                    break;
-                case 3:
-                    OperacoesContato.removerContato();
-                    break;
-                case 4:
-                    System.out.println("Saindo...");
-                    break;
-                default:
-                    System.out.println("Opção inválida!");
-            }
-        } while (opcao != 4);
-    }
+            try {
+                mostrarScreen();
+                opcao = scanner.nextInt();
+                scanner.nextLine(); // Limpar buffer do scanner
+                    switch (opcao) {
+                        case 1:
+                            OperacoesContato.adicionarContato();
+                            break;
+                        case 2:
+                            OperacoesContato.editarContato();
+                            break;
+                        case 3:
+                            OperacoesContato.removerContato();
+                            break;
+                        case 4:
+                            System.out.println("Saindo...");
+                            break;
+                        default:
+                            System.out.println("Opção inválida!");
+                    }
+                }
+                catch (InputMismatchException e) {
+                    System.out.println("Por favor, insira um número válido.");
+                    scanner.nextLine(); // Limpar buffer do scanner
+                }
+            } while (opcao != 4);
+        }
+
+    /**
+     * Exibe a interface do menu principal e a lista de contatos.
+     * Inclui as opções disponíveis para o usuário.
+     */
     private void mostrarScreen() {
         System.out.println(""" 
         \n
@@ -66,19 +87,41 @@ public class Menu {
         4 - Sair
         Escolha uma opção:""");
     }
+
+    /**
+     * Exibe opções para editar as informações de um contato.
+     * Retorna a opção escolhida pelo usuário.
+     *
+     * @return A opção de edição escolhida.
+     */
     public static int editarContato() {
         System.out.println("""
                         Escolha a informação que gostaria de editar:
-                        
+
                         1. Nome
                         2. Sobrenome
                         3. Telefone
-                        
+
                         Digite sua opção:""");
-        int opcao = sc.nextInt();
-        sc.nextLine();
-        return opcao;
+
+        while (true) {
+            try {
+                int opcao = scanner.nextInt();
+                scanner.nextLine(); // Limpar buffer do scanner
+                return opcao;
+            } catch (InputMismatchException e) {
+                System.out.println("Por favor, insira um número válido.");
+                scanner.nextLine(); // Consumir entrada incorreta
+            }
+        }
     }
+
+    /**
+     * Permite ao usuário editar os telefones de um contato específico.
+     * Inclui opções para adicionar, editar ou remover números de telefone.
+     *
+     * @param contato O contato cujos telefones serão editados.
+     */
     public static void editarTelefoneDoContato(Contato contato) {
         int opcao;
         do {
@@ -87,22 +130,28 @@ public class Menu {
             System.out.println("2 - Editar um número existente");
             System.out.println("3 - Apagar um número existente");
             System.out.println("\nDigite sua opção:");
-            opcao = sc.nextInt();
-            sc.nextLine();
 
-            switch (opcao) {
-                case 1:
-                    OperacoesContato.adicionarNovoTelefone(contato);
-                    break;
-                case 2:
-                    OperacoesContato.editarTelefoneExistente(contato);
-                    break;
-                case 3:
-                    OperacoesContato.apagarTelefoneExistente(contato);
-                    break;
-                default:
-                    System.out.println("Opção inválida. Por favor, escolha uma opção válida (1, 2 ou 3).");
-                    break;
+            try {
+                opcao = scanner.nextInt();
+                scanner.nextLine(); // Limpar buffer do scanner
+
+                switch (opcao) {
+                    case 1:
+                        OperacoesContato.adicionarNovoTelefone(contato);
+                        break;
+                    case 2:
+                        OperacoesContato.editarTelefoneExistente(contato);
+                        break;
+                    case 3:
+                        OperacoesContato.apagarTelefoneExistente(contato);
+                        break;
+                    default:
+                        System.out.println("Opção inválida. Por favor, escolha uma opção válida (1, 2 ou 3).");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Por favor, insira um número válido.");
+                scanner.nextLine(); // Consumir entrada incorreta
+                opcao = 0; // Reset opção para continuar o loop
             }
         } while (opcao < 1 || opcao > 3);
     }
