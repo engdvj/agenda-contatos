@@ -2,7 +2,7 @@
 
 ## Descrição
 
-    Sistema de agenda telefônica para gerenciamento de contatos, implementado em Java com as seguintes funcionalidades:
+    Sistema de agenda telefônica para gestão de contatos com as seguintes funcionalidades:
     - Adição
     - Edição
     - Remoção de contatos e telefones.
