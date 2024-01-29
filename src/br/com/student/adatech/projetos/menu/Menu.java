@@ -9,30 +9,36 @@ import java.util.Scanner;
 
 public class Menu {
 
+    //Variaveis
+    public static Scanner sc;
+
+    //Construtor
     public Menu(){
         Arquivo.carregarContatos();
+        Menu.sc = new Scanner(System.in);
     }
+
+    //Outros métodos
     public void iniciarPrograma(){
-        Scanner sc = new Scanner(System.in);
-        escolherAcao(sc);
+        escolherAcao();
         sc.close();
     }
-    private void escolherAcao(Scanner sc) {
+    private void escolherAcao() {
         int opcao;
 
         do {
-            imprimirMenu();
+            mostrarScreen();
             opcao = sc.nextInt();
             sc.nextLine();
             switch (opcao) {
                 case 1:
-                    Agenda.adicionarContato(sc);
+                    Agenda.adicionarContato();
                     break;
                 case 2:
-                    Agenda.editarContato(sc);
+                    Agenda.editarContato();
                     break;
                 case 3:
-                    Agenda.removerContato(sc);
+                    Agenda.removerContato();
                     break;
                 case 4:
                     System.out.println("Saindo...");
@@ -42,7 +48,7 @@ public class Menu {
             }
         } while (opcao != 4);
     }
-    private void imprimirMenu() {
+    private void mostrarScreen() {
         System.out.println(""" 
         \n
         ##################
@@ -60,7 +66,7 @@ public class Menu {
         4 - Sair
         Escolha uma opção:""");
     }
-    public static int editarContato(Scanner sc) {
+    public static int editarContato() {
         System.out.println("""
                         Escolha a informação que gostaria de editar:
                         
@@ -73,7 +79,7 @@ public class Menu {
         sc.nextLine();
         return opcao;
     }
-    public static void editarTelefoneDoContato(Scanner sc, Contato contato) {
+    public static void editarTelefoneDoContato(Contato contato) {
         int opcao;
         do {
             System.out.println("Escolha uma ação para o telefone:");

@@ -27,15 +27,15 @@ public class Agenda {
     }
 
     //Outros métodos
-    public static void adicionarContato(Scanner sc) {
+    public static void adicionarContato() {
         List<Telefone> telefones = new ArrayList<>();
 
         System.out.println("Digite o nome do contato:");
-        String nome = sc.nextLine();
+        String nome = Menu.sc.nextLine();
         System.out.println("Digite o sobrenome do contato:");
-        String sobreNome = sc.nextLine();
+        String sobreNome = Menu.sc.nextLine();
 
-        coletarTelefones(sc,telefones);
+        coletarTelefones(telefones);
 
         Contato novoContato = new Contato(nome, sobreNome, telefones);
 
@@ -45,7 +45,7 @@ public class Agenda {
     public static void adicionarContato(Contato contato) {
         agenda.add(contato);
     }
-    public static void editarContato(Scanner sc) {
+    public static void editarContato() {
         if (Agenda.agenda.isEmpty()) {
             System.out.println("Não existem contatos para editar!");
             return;
@@ -55,7 +55,7 @@ public class Agenda {
         Contato contato;
         do {
             System.out.println("Digite o ID do contato a ser editado:");
-            id = sc.nextLong();
+            id = Menu.sc.nextLong();
             contato = Agenda.getContatoPorId(id);
 
             if (contato == null) {
@@ -63,30 +63,30 @@ public class Agenda {
             }
         } while (contato == null);
 
-        int opcao = Menu.editarContato(sc);
+        int opcao = Menu.editarContato();
 
         switch (opcao) {
             case 1:
                 System.out.println("Digite o novo nome:");
-                String novoNome = sc.nextLine();
+                String novoNome = Menu.sc.nextLine();
                 contato.setNome(novoNome);
                 Arquivo.atualizarContato(contato);
                 break;
             case 2:
                 System.out.println("Digite o novo sobrenome:");
-                String novoSobrenome = sc.nextLine();
+                String novoSobrenome = Menu.sc.nextLine();
                 contato.setSobreNome(novoSobrenome);
                 Arquivo.atualizarContato(contato);
                 break;
             case 3:
-                Menu.editarTelefoneDoContato(sc, contato);
+                Menu.editarTelefoneDoContato(contato);
                 break;
             default:
                 System.out.println("Opção inválida.");
                 break;
         }
     }
-    public static void removerContato(Scanner sc) {
+    public static void removerContato() {
         if (Agenda.agenda.isEmpty()) {
             System.out.println("Não existem contatos para remover!");
             return;
@@ -96,7 +96,7 @@ public class Agenda {
         boolean contatoRemovido = false;
         do {
             System.out.println("Digite o ID do contato a ser removido:");
-            id = sc.nextLong();
+            id = Menu.sc.nextLong();
 
             // Primeiro verificar se o contato existe na Agenda
             if (Agenda.getContatoPorId(id) != null) {
@@ -204,15 +204,15 @@ public class Agenda {
         Arquivo.removerTelefone(contato.getId(), telefoneRemovido);
         System.out.println("Telefone removido com sucesso.");
     }
-    private static void coletarTelefones(Scanner sc, List<Telefone> telefones) {
+    private static void coletarTelefones(List<Telefone> telefones) {
         boolean continuarColetando = true;
 
         do {
             System.out.println("Digite o DDD do telefone:");
-            String ddd = sc.nextLine();
+            String ddd = Menu.sc.nextLine();
             System.out.println("Digite o número do telefone:");
-            Long numero = sc.nextLong();
-            sc.nextLine();
+            Long numero = Menu.sc.nextLong();
+            Menu.sc.nextLine();
 
             Telefone novoTelefone = new Telefone(ddd, numero);
 
@@ -223,7 +223,7 @@ public class Agenda {
             System.out.println("Telefone adicionado com sucesso.\n");
 
             System.out.println("Deseja adicionar outro número? (sim/não)");
-            String resposta = sc.nextLine();
+            String resposta = Menu.sc.nextLine();
 
             if (!resposta.equalsIgnoreCase("sim")) {
                 continuarColetando = false;
