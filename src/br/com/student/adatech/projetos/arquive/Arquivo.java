@@ -1,8 +1,8 @@
-package Arquivo;
+package br.com.student.adatech.projetos.arquive;
 
-import Informacoes.Agenda;
-import Informacoes.Contato;
-import Informacoes.Telefone;
+import br.com.student.adatech.projetos.models.Agenda;
+import br.com.student.adatech.projetos.models.Contato;
+import br.com.student.adatech.projetos.models.Telefone;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ public class Arquivo {
     private static final String TELEFONES = "C:\\Users\\Davi Costa\\Desktop\\Projetos_ADA\\agenda_contatos\\arquivo\\Telefones.txt";
 
     //Métodos para leitura do arquivo
-    public static void carregarContatos(Agenda agenda) {
+    public static void carregarContatos() {
         Contato.inicializarIdGenerator(Arquivo.lerUltimoIdContato());
         Telefone.setIDGenerator(Arquivo.lerUltimoIdTelefone());
         List<String> linhasContato = lerContatos();
@@ -25,7 +25,7 @@ public class Arquivo {
             String[] partesContato = linhaContato.split(" \\| ");
             long idContato = Long.parseLong(partesContato[0].trim());
             Contato contato = recuperarContato(partesContato, linhasTelefone, idContato);
-            agenda.addContato(contato);
+            Agenda.adicionarContato(contato);
         }
     }
     private static Contato recuperarContato(String[] partesContato, List<String> linhasTelefone, Long idContato) {
@@ -144,13 +144,13 @@ public class Arquivo {
 
         escreverNoArquivo(new File(TELEFONES), linhasAtualizadas, false);
     }
-    public static void removerContato(Long idContato, Agenda agenda) {
-        removerDoArquivo(new File(ARQUIVOS), idContato, agenda);
-        removerTelefonesDoContato(idContato, agenda);
+    public static void removerContato(Long idContato) {
+        removerDoArquivo(new File(ARQUIVOS), idContato);
+        removerTelefonesDoContato(idContato);
     }
-    private static void removerDoArquivo(File arquivo, Long idContato, Agenda agenda) {
+    private static void removerDoArquivo(File arquivo, Long idContato) {
 
-        Contato contato = agenda.getContatoPorId(idContato);
+        Contato contato = Agenda.getContatoPorId(idContato);
 
         if (contato == null) {
             return; // Se não encontrar o contato, não há nada a remover
@@ -177,9 +177,9 @@ public class Arquivo {
 
         }
     }
-    private static void removerTelefonesDoContato(Long idContato, Agenda agenda) {
+    private static void removerTelefonesDoContato(Long idContato) {
         // Primeiro, obtenha o nome do contato usando o idContato
-        Contato contato = agenda.getContatoPorId(idContato);
+        Contato contato = Agenda.getContatoPorId(idContato);
         if (contato == null) {
             return;
         }
@@ -238,7 +238,7 @@ public class Arquivo {
         String idContatoFormatado = String.format("%02d", idContato);
         String idTelefoneFormatado = String.format("%02d", telefoneAtualizado.getId());
 
-        int count = 0;
+
 
         for (String linha : linhas) {
             String[] partesLinha = linha.split(" \\| ");
@@ -249,7 +249,6 @@ public class Arquivo {
                         telefoneAtualizado.getDdd() + " | " +
                         telefoneAtualizado.getNumero();
                 linhasAtualizadas.add(novaLinha);
-                count++;
             } else {
                 linhasAtualizadas.add(linha);
             }
@@ -264,12 +263,14 @@ public class Arquivo {
                 // Escreve uma única linha
                 writer.write((String) conteudo);
                 writer.newLine();
-            } else if (conteudo instanceof List) {
+            } else if (conteudo instanceof List<?>) {
                 // Escreve várias linhas
-                for (String linha : (List<String>) conteudo) {
-                    writer.write(linha);
-                    writer.newLine();
-
+                for (Object item : (List<?>) conteudo) {
+                    if (item instanceof String) {
+                        writer.write((String) item);
+                        writer.newLine();
+                    }
+                    // Pode adicionar um 'else' para lidar com casos onde o item não é uma String
                 }
             }
         } catch (IOException e) {

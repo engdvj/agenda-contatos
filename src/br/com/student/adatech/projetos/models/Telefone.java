@@ -1,5 +1,5 @@
-package Informacoes;
-import Arquivo.Arquivo;
+package br.com.student.adatech.projetos.models;
+import br.com.student.adatech.projetos.arquive.Arquivo;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -63,6 +63,5 @@ public class Telefone {
     public String toString() {
         return "(" + ddd + ") " + numero;
     }
-
 
 }

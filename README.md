@@ -44,7 +44,7 @@ Tudo é feito através de uma interface de linha de comando, super intuitiva e f
 
 1° Faça o download ou clone o repositório.
 
-2° Compile e execute o arquivo Main.java.
+2° Compile e execute o arquivo br.com.student.adatech.projetos.Main.java.
 
 3° Siga as instruções na tela para adicionar, editar ou remover contatos e telefones.
 

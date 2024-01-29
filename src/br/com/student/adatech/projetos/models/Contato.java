@@ -1,6 +1,6 @@
-package Informacoes;
+package br.com.student.adatech.projetos.models;
 
-import Arquivo.Arquivo;
+import br.com.student.adatech.projetos.arquive.Arquivo;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
@@ -37,7 +37,6 @@ public class Contato {
     // Setters
     public void setNome(String nome) { this.nome = nome; }
     public void setSobreNome(String sobreNome) { this.sobreNome = sobreNome; }
-    public void setId(Long id) { this.id = id; }
 
     // Outros métodos
     public void exibirTelefonesDoContato() {
