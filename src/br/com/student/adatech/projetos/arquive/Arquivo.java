@@ -14,8 +14,8 @@ import java.util.List;
  */
 public class Arquivo {
 
-    private static final String ARQUIVOS = "C:\\Users\\Davi Costa\\Desktop\\Projetos_ADA\\agenda_contatos\\arquivo\\Arquivo.txt";
-    private static final String TELEFONES = "C:\\Users\\Davi Costa\\Desktop\\Projetos_ADA\\agenda_contatos\\arquivo\\Telefones.txt";
+    private static final String ARQUIVOS = "arquivo/Arquivo.txt";
+    private static final String TELEFONES = "arquivo/Telefones.txt";
 
     /**
      * Carrega os contatos do arquivo e os adiciona à agenda.
