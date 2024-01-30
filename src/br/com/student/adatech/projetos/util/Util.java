@@ -69,6 +69,7 @@ public class Util {
 
                 if (verificarTelefone(novoTelefone, telefones)) {
                     System.out.println("Telefone já cadastrado.");
+                    Telefone.decrementarId();
                     continue;
                 }
 

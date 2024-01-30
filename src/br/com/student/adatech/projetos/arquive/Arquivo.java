@@ -18,14 +18,9 @@ public class Arquivo {
     private static final String TELEFONES = "C:\\Users\\Davi Costa\\Desktop\\Projetos_ADA\\agenda_contatos\\arquivo\\Telefones.txt";
 
     /**
-     * Métodos para a leitura de informações presentes no arquivo.
-     * carregarContatos() - Inicializa os contatos salvos no arquivo de acordo com as informações presentes.
-     * recuperarContatos() - Cria novos contatos na memória do projeto atual baseado nas informações carregadas
-     * lerContatos()
-     * lerTelefones()
-     * lerDoArquivo()
-     * lerUltimoIdContato()
-     * 
+     * Carrega os contatos do arquivo e os adiciona à agenda.
+     * Inicializa os geradores de ID para Contato e Telefone com base nos últimos IDs lidos do arquivo.
+     * Lê os contatos e seus respectivos telefones dos arquivos e os adiciona à agenda.
      */
     public static void carregarContatos() {
         Contato.inicializarIdGenerator(Arquivo.lerUltimoIdContato());
@@ -40,6 +35,14 @@ public class Arquivo {
             OperacoesContato.adicionarContato(contato);
         }
     }
+    /**
+     * Recupera um contato e seus telefones a partir de strings formatadas.
+     *
+     * @param partesContato  Array de strings contendo informações do contato.
+     * @param linhasTelefone Lista de strings com informações dos telefones.
+     * @param idContato      ID do contato a ser recuperado.
+     * @return Um objeto Contato construído a partir das informações fornecidas.
+     */
     private static Contato recuperarContato(String[] partesContato, List<String> linhasTelefone, Long idContato) {
         String nome = partesContato[1].trim();
         String sobreNome = partesContato[2].trim();
@@ -59,14 +62,33 @@ public class Arquivo {
 
         return new Contato(idContato, nome, sobreNome, telefonesDoContato);
     }
+    /**
+     * Lê as linhas do arquivo de contatos e retorna uma lista de strings.
+     *
+     * @return Lista contendo cada linha do arquivo de contatos.
+     */
     public static List<String> lerContatos() {
         File arquivo = new File(ARQUIVOS);
         return lerDoArquivo(arquivo);
     }
+
+    /**
+     * Lê as linhas do arquivo de telefones e retorna uma lista de strings.
+     *
+     * @return Lista contendo cada linha do arquivo de telefones.
+     */
     public static List<String> lerTelefones() {
         File telefone = new File(TELEFONES);
         return lerDoArquivo(telefone);
     }
+
+    /**
+     * Lê as linhas de um arquivo especificado e as retorna como uma lista de strings.
+     * Se o arquivo não existir, cria um novo arquivo vazio.
+     *
+     * @param arquivo O arquivo a ser lido.
+     * @return Lista das linhas lidas do arquivo.
+     */
     private static List<String> lerDoArquivo(File arquivo) {
         List<String> linhas = new ArrayList<>();
         try {
@@ -86,6 +108,12 @@ public class Arquivo {
         }
         return linhas;
     }
+
+    /**
+     * Lê o último ID de contato do arquivo correspondente.
+     *
+     * @return O maior ID encontrado no arquivo de contatos.
+     */
     public static Long lerUltimoIdContato() {
         List<String> linhas = lerContatos();
         long maiorId = 0L;
@@ -102,6 +130,12 @@ public class Arquivo {
         }
         return maiorId;
     }
+
+    /**
+     * Lê o último ID de telefone do arquivo correspondente.
+     *
+     * @return O maior ID encontrado no arquivo de telefones.
+     */
     public static Long lerUltimoIdTelefone() {
         List<String> linhas = lerTelefones();
         long maiorId = 0L;
@@ -119,7 +153,12 @@ public class Arquivo {
         return maiorId;
     }
 
-    //Métodos para escrita/alteração no arquivo
+    /**
+     * Adiciona um contato ao arquivo de contatos e seus telefones ao arquivo de telefones.
+     * Formata os detalhes do contato e do telefone para gravação.
+     *
+     * @param contato O contato a ser adicionado.
+     */
     public static void adicionarContato(Contato contato) {
         String detalhesContato = String.format("%02d", contato.getId()) +
                 " | " + contato.getNome() +
@@ -134,6 +173,13 @@ public class Arquivo {
             escreverNoArquivo(new File(TELEFONES), detalhesTelefone,true);
         }
     }
+
+    /**
+     * Adiciona um telefone ao contato especificado.
+     *
+     * @param idContato o ID do contato
+     * @param novoTelefone o telefone a ser adicionado
+     */
     public static void adicionarTelefone(Long idContato, Telefone novoTelefone) {
         String detalhesTelefone = String.format("%02d", idContato) + " | " +
                 String.format("%02d", novoTelefone.getId()) + " | " +
@@ -141,6 +187,13 @@ public class Arquivo {
                 novoTelefone.getNumero();
         escreverNoArquivo(new File(TELEFONES), detalhesTelefone, true);
     }
+
+    /**
+     * Remove um telefone ao contato especificado.
+     *
+     * @param idContato o ID do contato
+     * @param telefoneRemovido o telefone a ser adicionado
+     */
     public static void removerTelefone(Long idContato, Telefone telefoneRemovido) {
         List<String> linhas = lerTelefones();
         List<String> linhasAtualizadas = new ArrayList<>();
@@ -156,10 +209,23 @@ public class Arquivo {
 
         escreverNoArquivo(new File(TELEFONES), linhasAtualizadas, false);
     }
+
+    /**
+     * Remove um contato especificado.
+     *
+     * @param idContato o ID do contato
+     */
     public static void removerContato(Long idContato) {
         removerDoArquivo(new File(ARQUIVOS), idContato);
         removerTelefonesDoContato(idContato);
     }
+
+    /**
+     * Remove informações do arquivo sobre um contato especificado.
+     *
+     * @param arquivo o caminho do arquivo referente
+     * @param idContato o ID do contato
+     */
     private static void removerDoArquivo(File arquivo, Long idContato) {
 
         Contato contato = Agenda.getContatoPorId(idContato);
@@ -189,6 +255,12 @@ public class Arquivo {
 
         }
     }
+
+    /**
+     * Remove um telefones de um contato especificado.
+     *
+     * @param idContato o ID do contato
+     */
     private static void removerTelefonesDoContato(Long idContato) {
         // Primeiro, obtenha o nome do contato usando o idContato
         Contato contato = Agenda.getContatoPorId(idContato);
@@ -221,6 +293,12 @@ public class Arquivo {
 
         }
     }
+
+    /**
+     * Altera informações de um contato no arquivo.
+     *
+     * @param contatoAtualizado o contato a ser alterado
+     */
     public static void atualizarContato(Contato contatoAtualizado) {
         File arquivoContatos = new File(ARQUIVOS);
         List<String> linhas = lerDoArquivo(arquivoContatos);
@@ -241,6 +319,12 @@ public class Arquivo {
         // Reescrever o arquivo com as linhas atualizadas
         escreverNoArquivo(arquivoContatos, linhasAtualizadas, false);
     }
+
+    /**
+     * Altera informações de um telefone de um contato no arquivo.
+     *
+     * @param telefoneAtualizado o contato a ser alterado
+     */
     public static void atualizarTelefone(Long idContato, Telefone telefoneAtualizado) {
 
         File arquivoTelefones = new File(TELEFONES);
@@ -269,20 +353,25 @@ public class Arquivo {
         escreverNoArquivo(arquivoTelefones, linhasAtualizadas, false);
         System.out.println("Linha de telefone atualizada!");
     }
+
+    /**
+     * Escreve o conteúdo em um arquivo.
+     *
+     * @param arquivo  o arquivo onde o conteúdo será escrito
+     * @param conteudo o conteúdo a ser escrito no arquivo
+     * @param append   se true, o conteúdo será adicionado ao final do arquivo, caso contrário, o arquivo será sobrescrito
+     */
     private static void escreverNoArquivo(File arquivo, Object conteudo, boolean append) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo, append))) {
             if (conteudo instanceof String) {
-                // Escreve uma única linha
                 writer.write((String) conteudo);
                 writer.newLine();
             } else if (conteudo instanceof List<?>) {
-                // Escreve várias linhas
                 for (Object item : (List<?>) conteudo) {
                     if (item instanceof String) {
                         writer.write((String) item);
                         writer.newLine();
                     }
-                    // Pode adicionar um 'else' para lidar com casos onde o item não é uma String
                 }
             }
         } catch (IOException e) {

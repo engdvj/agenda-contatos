@@ -40,7 +40,7 @@ public class Menu {
             try {
                 mostrarScreen();
                 opcao = scanner.nextInt();
-                scanner.nextLine(); // Limpar buffer do scanner
+                scanner.nextLine();
                     switch (opcao) {
                         case 1:
                             OperacoesContato.adicionarContato();
@@ -60,7 +60,7 @@ public class Menu {
                 }
                 catch (InputMismatchException e) {
                     System.out.println("Por favor, insira um número válido.");
-                    scanner.nextLine(); // Limpar buffer do scanner
+                    scanner.nextLine();
                 }
             } while (opcao != 4);
         }
@@ -107,11 +107,11 @@ public class Menu {
         while (true) {
             try {
                 int opcao = scanner.nextInt();
-                scanner.nextLine(); // Limpar buffer do scanner
+                scanner.nextLine();
                 return opcao;
             } catch (InputMismatchException e) {
                 System.out.println("Por favor, insira um número válido.");
-                scanner.nextLine(); // Consumir entrada incorreta
+                scanner.nextLine();
             }
         }
     }
@@ -133,7 +133,7 @@ public class Menu {
 
             try {
                 opcao = scanner.nextInt();
-                scanner.nextLine(); // Limpar buffer do scanner
+                scanner.nextLine();
 
                 switch (opcao) {
                     case 1:
@@ -150,8 +150,8 @@ public class Menu {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Por favor, insira um número válido.");
-                scanner.nextLine(); // Consumir entrada incorreta
-                opcao = 0; // Reset opção para continuar o loop
+                scanner.nextLine();
+                opcao = 0;
             }
         } while (opcao < 1 || opcao > 3);
     }

@@ -22,7 +22,6 @@ public class OperacoesContato {
      * Coleta informações do usuário, incluindo nome, sobrenome e telefones,
      * e cria um novo contato que é adicionado à agenda e ao arquivo.
      */
-
     public static void adicionarContato() {
         List<Telefone> telefones = new ArrayList<>();
 
@@ -50,6 +49,7 @@ public class OperacoesContato {
             System.out.println("Erro ao adicionar contato: " + e.getMessage());
         }
     }
+
     public static void adicionarContato(Contato contato) {
         Agenda.getAgenda().add(contato);
     }
@@ -58,6 +58,7 @@ public class OperacoesContato {
      * Permite editar um contato existente na agenda.
      * O usuário pode alterar o nome, sobrenome ou telefones do contato.
      */
+
     public static void editarContato() {
         if (Agenda.getAgenda().isEmpty()) {
             System.out.println("Não existem contatos para editar!");
@@ -116,7 +117,7 @@ public class OperacoesContato {
             System.out.println("Digite o ID do contato a ser removido:");
             while (!Menu.scanner.hasNextLong()) {
                 System.out.println("Por favor, insira um número válido para o ID.");
-                Menu.scanner.next(); // Descarta entrada incorreta
+                Menu.scanner.next();
             }
             id = Menu.scanner.nextLong();
 
@@ -141,15 +142,15 @@ public class OperacoesContato {
             String ddd = Menu.scanner.nextLine();
             System.out.println("Digite o número do novo telefone:");
 
-            Long numero;
+            long numero;
             while (true) {
                 if (Menu.scanner.hasNextLong()) {
                     numero = Menu.scanner.nextLong();
-                    Menu.scanner.nextLine(); // Limpa o buffer do scanner
+                    Menu.scanner.nextLine();
                     break;
                 } else {
                     System.out.println("Por favor, digite um número válido.");
-                    Menu.scanner.next(); // Descarta entrada incorreta
+                    Menu.scanner.next();
                 }
             }
 
@@ -159,6 +160,8 @@ public class OperacoesContato {
                 Arquivo.adicionarTelefone(contato.getId(), novoTelefone);
             } else {
                 System.out.println("Telefone já cadastrado.");
+                Telefone.decrementarId();
+
             }
         } catch (Exception e) {
             System.out.println("Erro ao adicionar novo telefone: " + e.getMessage());
@@ -181,10 +184,10 @@ public class OperacoesContato {
             System.out.println("Escolha o número do telefone para editar (1, 2, ...):");
             while (!Menu.scanner.hasNextInt()) {
                 System.out.println("Por favor, insira um número inteiro válido.");
-                Menu.scanner.next(); // Descarta entrada incorreta
+                Menu.scanner.next();
             }
             indice = Menu.scanner.nextInt() - 1;
-            Menu.scanner.nextLine(); // Limpa o buffer do scanner
+            Menu.scanner.nextLine();
             if (indice < 0 || indice >= telefones.size()) {
                 System.out.println("Índice inválido. Tente novamente.");
             }
@@ -197,17 +200,19 @@ public class OperacoesContato {
             long novoNumero;
             if (Menu.scanner.hasNextLong()) {
                 novoNumero = Menu.scanner.nextLong();
-                Menu.scanner.nextLine(); // Limpa o buffer do scanner
+                Menu.scanner.nextLine();
             } else {
                 throw new InputMismatchException("Número de telefone inválido.");
             }
 
-            Telefone telefoneAtualizado = telefones.get(indice);
-            telefoneAtualizado.setDdd(novoDdd);
-            telefoneAtualizado.setNumero(novoNumero);
-
-            Arquivo.atualizarTelefone(contato.getId(), telefoneAtualizado);
-            System.out.println("Telefone atualizado com sucesso.");
+            Telefone telefoneAtualizado = new Telefone(novoDdd, novoNumero);
+            if (!Util.verificarTelefone(telefoneAtualizado, telefones)) {
+                telefones.set(indice, telefoneAtualizado);
+                Arquivo.atualizarTelefone(contato.getId(), telefoneAtualizado);
+                System.out.println("Telefone atualizado com sucesso.");
+            } else {
+                System.out.println("Telefone já cadastrado. Nenhuma alteração realizada.");
+            }
         } catch (Exception e) {
             System.out.println("Erro ao editar telefone: " + e.getMessage());
         }
@@ -230,10 +235,10 @@ public class OperacoesContato {
             System.out.println("Escolha o número do telefone para apagar (1, 2, ...):");
             while (!Menu.scanner.hasNextInt()) {
                 System.out.println("Por favor, insira um número inteiro válido.");
-                Menu.scanner.next(); // Descarta entrada incorreta
+                Menu.scanner.next();
             }
             indice = Menu.scanner.nextInt() - 1;
-            Menu.scanner.nextLine(); // Limpa o buffer do scanner
+            Menu.scanner.nextLine();
             if (indice < 0 || indice >= telefones.size()) {
                 System.out.println("Índice inválido. Tente novamente.");
             }

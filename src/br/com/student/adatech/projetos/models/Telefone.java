@@ -68,6 +68,10 @@ public class Telefone {
         TELEFONE_ID_GENERATOR = new AtomicLong(ultimoId);
     }
 
+    public static void decrementarId() {
+        TELEFONE_ID_GENERATOR.getAndUpdate(currentId -> currentId > 0 ? currentId - 1 : 0);
+    }
+
     /**
      * Verifica a validade do DDD e do número do telefone.
      * Lança IllegalArgumentException se o DDD for nulo/vazio ou o número for nulo.
